@@ -29,18 +29,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String s = editText.getText().toString();
                 String sb = new StringBuilder(s).reverse().toString();
-
                 if( s.equals(sb)){
                     Toast.makeText(getApplicationContext(), "Yes, it's palindrom", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getApplicationContext(), "Not palindrom", Toast.LENGTH_SHORT).show();
+
                 }
+
             }
         });
 
     }
+    public String check(String s, String sb){
 
+        if( s.equals(sb)){
+            return s;
+        }else{
+            return sb;
+        }
 
-
-
+    }
 }
