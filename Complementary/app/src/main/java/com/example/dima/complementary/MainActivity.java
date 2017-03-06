@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,13 +47,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Власне сам алгоритм по знаходженню К-компліментарної (K-complementary) пари
-    public void printPairSums (int[] array, int sum) {
+    public Map<Integer, Integer> printPairSums (int[] array, int sum) {
+        Map<Integer,Integer> map = new HashMap<>();
         Arrays.sort(array);
         int first = 0;
         int last = array.length - 1;
         while (first < last) {
             int s = array[first] + array[last];
             if (s == sum) {
+                map.put(array[first], array[last]);
                 System.out.println(array[first] + " " + array[last]);
                 first++;
                 last--;
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 else last--;
             }
         }
+        return map;
     }
 }
 
